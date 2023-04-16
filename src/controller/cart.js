@@ -4,7 +4,10 @@ function runUpdate(condition, updateData) {
   return new Promise((resolve, reject) => {
     //you update code here
 
-    Cart.findOneAndUpdate(condition, updateData, { upsert: true })
+    Cart.findOneAndUpdate(condition, updateData, {
+      upsert: true,
+      setDefaultsOnInsert: false,
+    })
       .then((result) => resolve())
       .catch((err) => reject(err));
   });
@@ -19,15 +22,16 @@ exports.addItemToCart = (req, res) => {
       req.body.cartItems.forEach((cartItem)=>{
         const product = cartItem.product;
         const item = cart.cartItems.find((c) => c.product == product);
-        let condition, update
+        let condition, update;
 
         if (item) {
           condition = {user: req.user._id, "cartItems.product": product}
           update ={
-              " $set": {
+              $set: {
                 "cartItems.$": cartItem,
               },
             }
+            console.log(update,condition)
         } else {
           condition =  { user: req.user._id }
           update = {
