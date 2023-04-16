@@ -8,6 +8,7 @@ const cartRoutes = require("./routes/cart");
 const adminRoutes = require("./routes/admin/auth");
 const productRoutes = require("./routes/products");
 const addressRoutes = require("./routes/address");
+const orderRoutes = require("./routes/order");
 const initialDataRoutes = require("./routes/admin/initialData");
 const pageRoutes = require("./routes/admin/page");
 const path = require("path");
@@ -35,6 +36,7 @@ app.use("/api", cartRoutes);
 app.use("/api", initialDataRoutes);
 app.use("/api", pageRoutes);
 app.use("/api",addressRoutes)
+app.use("/api", orderRoutes);
 
 // console.log(process.env)
 
