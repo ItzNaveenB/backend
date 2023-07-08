@@ -1,5 +1,5 @@
-const address = require("../models/address");
-const UserAddress = require("../models/address");
+const address = require("../models/Address");
+const UserAddress = require("../models/Address");
 
 exports.addAddress = (req, res) => {
   //return res.status(200).json({body: req.body})

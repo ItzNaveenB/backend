@@ -1,6 +1,6 @@
 const Order = require("../models/Order");
 const Cart = require("../models/Cart");
-const Address = require("../models/address");
+const Address = require("../models/Address");
 
 exports.addOrder = (req, res) => {
   Cart.deleteOne({ user: req.user._id }).exec((error, result) => {
