@@ -16,8 +16,11 @@ const addressRoutes = require("./routes/address");
 const orderRoutes = require("./routes/order");
 const adminOrderRoute = require("./routes/admin/order.routes");
 
+const corsOptions = {
+  origin: "https://ecommerce-frontend-seven-sable.vercel.app/",
+};
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 app.use("/public", express.static(path.join(__dirname, "uploads")));
 app.use(express.urlencoded({ extended: true }));
 
