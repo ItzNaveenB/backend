@@ -52,7 +52,8 @@ exports.signin = (req,res) => {
   User.findOne({ email: req.body.email }).exec(async(error, user) => {
     if (error) return res.status(400).send({error});
     if (user) {
-      if (user.authenticate(req.body.password) && user.role === "user") {
+      const isPassword =await user.authenticate(req.body.password)
+      if (isPassword && user.role === "user") {
         const token = generateJwtToken(user._id, user.role);
         const { firstName, lastName, email, role, fullName } = user;
         res.status(200).json({
