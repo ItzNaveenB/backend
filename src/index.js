@@ -17,7 +17,7 @@ const orderRoutes = require("./routes/order");
 const adminOrderRoute = require("./routes/admin/order.routes");
 
 const corsOptions = {
-  origin: "https://ecommerce-frontend-seven-sable.vercel.app",
+  origin: "https://ecommerce-frontend-seven-sable.vercel.app/",
 };
 app.use(express.json());
 app.use(cors(corsOptions));
