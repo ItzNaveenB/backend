@@ -17,11 +17,11 @@ const orderRoutes = require("./routes/order");
 const adminOrderRoute = require("./routes/admin/order.routes");
 const formRoutes = require('./routes/formRoutes');
 
-const corsOptions = {
-  origin: "https://ecommerce-frontend-seven-sable.vercel.app/",
-};
+// const corsOptions = {
+//   origin: "https://ecommerce-frontend-seven-sable.vercel.app/",
+// };
 app.use(express.json());
-app.use(cors(corsOptions));
+app.use(cors());
 app.use("/public", express.static(path.join(__dirname, "uploads")));
 app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
@@ -41,7 +41,11 @@ const connection_url =mongoose.connect('mongodb://127.0.0.1:27017/Tailor-app').t
 }).catch((e)=>{
   console.log(e);
 })
+// Define routes
+const superadminRoute = require('./routes/admin/superadmin.js');
 
+// Use routes
+app.use('/superadmin', superadminRoute);
 app.use("/api", userRoutes);
 app.use("/api", adminRoutes);
 app.use("/api", categoryRoutes);
