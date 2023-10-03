@@ -9,10 +9,3 @@ router.get('/totalUsers', superadminController.findTotalUsers);
 router.get('/user/:id', superadminController.getUserDetailsById);
 
 module.exports = router;
-
-
-
-
-
-
-
