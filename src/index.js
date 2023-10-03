@@ -16,6 +16,7 @@ const addressRoutes = require("./routes/address");
 const orderRoutes = require("./routes/order");
 const adminOrderRoute = require("./routes/admin/order.routes");
 const formRoutes = require('./routes/formRoutes');
+const userRoutes = require("./routes/admin/user");
 
 // const corsOptions = {
 //   origin: "https://ecommerce-frontend-seven-sable.vercel.app/",
@@ -45,6 +46,8 @@ const connection_url =mongoose.connect('mongodb://127.0.0.1:27017/Tailor-app').t
 const superadminRoute = require('./routes/admin/superadmin.js');
 
 // Use routes
+
+app.use("/api/user", userRoutes);
 app.use('/superadmin', superadminRoute);
 app.use("/api", userRoutes);
 app.use("/api", adminRoutes);
