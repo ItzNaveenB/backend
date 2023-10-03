@@ -1,28 +1,17 @@
-class BusinessForm {
-    constructor(
-      businessName,
-      businessInfo,
-      storeName,
-      categories,
-      productListing,
-      shipmentDetails,
-      gstNo,
-      bankAccountDetails,
-      verifyTaxDetails,
-      signature
-    ) {
-      this.businessName = businessName;
-      this.businessInfo = businessInfo;
-      this.storeName = storeName;
-      this.categories = categories;
-      this.productListing = productListing;
-      this.shipmentDetails = shipmentDetails;
-      this.gstNo = gstNo;
-      this.bankAccountDetails = bankAccountDetails;
-      this.verifyTaxDetails = verifyTaxDetails;
-      this.signature = signature;
-    }
-  }
-  
-  module.exports = BusinessForm;
-  
+ 
+const mongoose = require('mongoose');
+
+const BusinessFormSchema = new mongoose.Schema({
+  businessName: String,
+  businessInfo: String,
+  storeName: String,
+  categories: [String],
+  productListing: String,
+  shipmentDetails: String,
+  gstNo: String,
+  bankAccountDetails: String,
+  verifyTaxDetails: String,
+  signature: String,
+});
+
+module.exports = mongoose.model('BusinessForm', BusinessFormSchema);
